@@ -1,0 +1,7 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+
+include:
+- project: mindtickle/devops/devops-ci-cd-templates
+  file: /dev-repos-ci-cd/.gitlab-ci.yml

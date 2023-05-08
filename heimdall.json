@@ -1,0 +1,9 @@
+{
+    "bookservice-workflow": {
+      "build_vars": {
+        "service_name": "BookServiceLambdaWorker"
+      },
+      "build_cmd": "bash prep.sh",
+      "dockerfile": "Dockerfile_lambda"
+    }
+  }
