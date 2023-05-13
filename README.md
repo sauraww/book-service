@@ -6,5 +6,5 @@ app init layer
 logger
 ports are interfaces responsible for talking to other layers or external services .
 incoming port : whatever functionalities that are being exposed . outgoing : wherever we are talking outside.
-domain will have core , application and infrastructure layer .
+Domain will have core , application and infrastructure layer .
 core - model and ports
