@@ -1,11 +1,11 @@
 **Golang Ports and Adapters Project**
 
 
-This project follows the ports and adapters architecture, also known as the hexagonal architecture. It separates the application into layers, allowing for flexibility, testability, and maintainability.
+```This project follows the ports and adapters architecture, also known as the hexagonal architecture. It separates the application into layers, allowing for flexibility, testability, and maintainability.```
 
 **#Architecture Overview**
 
-The project architecture consists of the following layers:
+```The project architecture consists of the following layers:```
 
 **Controller Layer**: Responsible for handling incoming requests and calling the appropriate app or facade layer. It serves as the entry point for external interactions.
 
