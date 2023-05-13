@@ -4,7 +4,7 @@
 
 Controller layer calls app layer or facade layer
 
-There is a middleware layer too. for example : there is request id generation for request or there is login or authentication system.
+We will also have middleware layer. for example : there is request id generation for request or there is login or authentication system.
 
 app init layer
 
