@@ -18,10 +18,14 @@ The project architecture consists of the following layers:
 **Ports**: Interfaces that define the contract for communication between different layers or external services. There are two types of ports:
 
 **Incoming Ports**: Represent functionalities exposed by the application to the outside world.
+
 **Outgoing Ports**: Represent interactions with external services or systems.
 Domain: This layer contains the core business logic and is further divided into the following sub-layers:
 
 **Model**: Defines the data structures and entities used within the application.
+
 **Ports**: Defines interfaces specific to the core business logic, enabling communication between the core and other layers.
+
 **Application**: Implements the use cases and business rules of the application.
+
 **Infrastructure**: Handles external dependencies, such as databases or external services.
