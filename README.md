@@ -1,4 +1,4 @@
-#*Sample-golang-ports-adaptors-project*
+#*Golang-ports-adaptors-project*
 
 ```Controller layer does input validation
 
@@ -16,4 +16,4 @@ Incoming port : whatever functionalities that are being exposed . outgoing : whe
 
 Domain will have core , application and infrastructure layer.
 
-Core - model and ports```
+Core - model and ports
