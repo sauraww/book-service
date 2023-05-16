@@ -37,8 +37,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
     ```shell
-    git clone (https://github.com/sauraww/book-service.git)
-    cd src 
+    git clone https://github.com/sauraww/book-service.git
     ```
 
 2. Install the dependencies:
@@ -48,13 +47,15 @@ To run the project locally, follow these steps:
     ```
 
 
-3. Build and run the project:
+3. Copy the postgres file into the docker container:
 
     ```shell
-    go build
-    ./<project_name>
+   docker cp src/infrastructure/sqlstore/create_book_table.sql 
     ```
 
-   Replace `<project_name>` with the actual name of your project.
-
+4. Enter the docker directory and run the project 
+     ```shell
+     cd docker
+     docker-compose up
+     ```
 5. The project should now be running. Access it through the appropriate endpoints or interfaces.
