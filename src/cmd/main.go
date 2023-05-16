@@ -4,6 +4,7 @@ import (
 	"bookservice/src/container"
 	"bookservice/src/mlog" // Add this import
 	"bookservice/src/router"
+	"context"
 	"log"
 	"net/http"
 
@@ -12,6 +13,9 @@ import (
 
 	// "github.com/joho/godotenv"
 	_ "github.com/lib/pq"
+
+	"golang.ngrok.com/ngrok"
+	"golang.ngrok.com/ngrok/config"
 )
 
 func main() {
@@ -34,5 +38,27 @@ func main() {
 	router := router.NewRouter(bookRepoAdapter)
 
 	mlog.Info.Println("Starting server at :8000") // Use the mlog.Info logger
-	log.Fatal(http.ListenAndServe(":8000", router))
+	go func() {
+		if err := http.ListenAndServe(":8000", router); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	if err := run(context.Background(), router); err != nil {
+		mlog.Error.Fatal(err)
+	}
+}
+
+func run(ctx context.Context, router http.Handler) error {
+	tun, err := ngrok.Listen(ctx,
+		config.HTTPEndpoint(),
+		ngrok.WithAuthtokenFromEnv(),
+	)
+	if err != nil {
+		return err
+	}
+
+	log.Println("tunnel created:", tun.URL())
+
+	return http.Serve(tun, router)
 }
