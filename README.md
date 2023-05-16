@@ -29,3 +29,32 @@ Domain: This layer contains the core business logic and is further divided into 
 **Application**: ```Implements the use cases and business rules of the application.```
 
 **Infrastructure**: ```Handles external dependencies, such as databases or external services.```
+
+## Running the Project
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+    ```shell
+    git clone <repository_url>
+    cd src 
+    ```
+
+2. Install the dependencies:
+
+    ```shell
+    go mod download
+    ```
+
+
+3. Build and run the project:
+
+    ```shell
+    go build
+    ./<project_name>
+    ```
+
+   Replace `<project_name>` with the actual name of your project.
+
+5. The project should now be running. Access it through the appropriate endpoints or interfaces.
