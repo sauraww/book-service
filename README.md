@@ -37,7 +37,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
     ```shell
-    git clone <repository_url>
+    git clone (https://github.com/sauraww/book-service.git)
     cd src 
     ```
 
