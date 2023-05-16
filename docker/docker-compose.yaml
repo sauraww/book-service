@@ -1,24 +1,35 @@
-version: '3.7'
+version: '3'
 
 services:
+  app:
+    build: ..
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=mypassword
+      - DB_NAME=book_service_db
+      - DB_PORT=5432
+      - DB_SSLMODE=disable
 
   postgres:
-    image: "postgres:10"
+    image: "postgres:latest"
     restart: always
     hostname: postgres
     container_name: postgres
-    # networks:
-    #   - aws-localstack
     user: postgres
     ports:
       - "5432:5432"
     environment:
-      PGUSER: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: book_db
-    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+      POSTGRES_DB: book_service_db
     volumes:
-      - "./docker/postgres.conf:/etc/postgresql/postgresql.conf"
+      - ./data:/var/lib/postgresql/data
+
     # healthcheck:
     #   test: [ "CMD", "pg_isready", "-h", "localhost" ]
     #   interval: 5s

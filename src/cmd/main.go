@@ -10,23 +10,21 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	err := godotenv.Load() // Add this line
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 	mlog.InitLogger() // Initialize the logger
 
 	dbUser := os.Getenv("DB_USER")
 	dbPassword := os.Getenv("DB_PASSWORD")
 	dbName := os.Getenv("DB_NAME")
 	dbSslmode := os.Getenv("DB_SSLMODE")
+	dbHost := os.Getenv("DB_HOST")
 
-	connectionString := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=%s", dbUser, dbPassword, dbName, dbSslmode)
+	connectionString := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=%s host=%s", dbUser, dbPassword, dbName, dbSslmode, dbHost)
+
 	bookRepoAdapter, err := container.InitBookRepository(connectionString)
 
 	if err != nil {
