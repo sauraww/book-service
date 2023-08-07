@@ -10,7 +10,10 @@ require (
 	google.golang.org/protobuf v1.30.0
 )
 
+require github.com/jmespath/go-jmespath v0.4.0 // indirect
+
 require (
+	github.com/aws/aws-sdk-go v1.44.317
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/inconshreveable/log15 v3.0.0-testing.3+incompatible // indirect
